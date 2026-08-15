@@ -21,8 +21,8 @@ export default function Projects() {
       <div className="container-x">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <SectionHeading
-            eyebrow="Completed projects"
-            title="Real products and automations, built and delivered."
+            eyebrow="Selected work"
+            title="Automations and AI products I have shipped."
             className="mb-0"
           />
           <div className="flex flex-wrap gap-2">
@@ -84,6 +84,7 @@ function ProjectCard({ project }: { project: Project }) {
       className="card card-hover group flex flex-col overflow-hidden"
     >
       {project.image ? (
+        /* screenshot banner */
         <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-cream-50">
           <img
             src={project.image}
@@ -96,22 +97,18 @@ function ProjectCard({ project }: { project: Project }) {
             <Icon size={18} />
           </div>
         </div>
-      ) : (
-        <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-line bg-cream-50">
-          <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(#e8a16b_1px,transparent_1px)] [background-size:18px_18px]" />
-          <div className="relative flex flex-col items-center gap-3 text-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-brand shadow-soft">
-              <Icon size={28} />
-            </div>
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">
-              Project preview coming soon
-            </span>
-          </div>
-          <div className="absolute right-4 top-4">{badges}</div>
-        </div>
-      )}
+      ) : null}
 
       <div className="flex flex-1 flex-col p-6 sm:p-7">
+        {!project.image && (
+          <div className="mb-5 flex items-start justify-between">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-soft text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+              <Icon size={22} />
+            </div>
+            {badges}
+          </div>
+        )}
+
         <h3 className="font-display text-xl font-semibold text-ink">{project.name}</h3>
         <p className="mt-2 text-sm leading-relaxed text-ink-muted">{project.blurb}</p>
 
