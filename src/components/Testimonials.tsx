@@ -13,9 +13,17 @@ export default function Testimonials() {
       <div className="container-x">
         <SectionHeading eyebrow="Client feedback" title="What people say after the handover." />
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Masonry columns rather than a grid. Reviews range from one line
+            to three paragraphs, and equal-height grid rows left ~400px of
+            dead space beside the longest quote. Columns let each card size
+            to its own content. */}
+        <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
           {testimonials.map((t, i) => (
-            <Reveal key={`${t.name}-${i}`} delay={i * 0.07}>
+            <Reveal
+              key={`${t.name}-${i}`}
+              delay={i * 0.07}
+              className="mb-5 break-inside-avoid"
+            >
               <TestimonialCard t={t} />
             </Reveal>
           ))}
@@ -27,11 +35,15 @@ export default function Testimonials() {
 
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
-    <figure className="card card-hover flex h-full flex-col p-6">
+    <figure className="card card-hover flex flex-col p-6">
       <Quote size={22} className="shrink-0 text-brand/35" aria-hidden="true" />
 
-      <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-ink-muted">
-        {t.quote}
+      {/* Blank lines in a quote are the client's own paragraph breaks.
+          Rendering the raw string would run them together. */}
+      <blockquote className="mt-4 flex-1 space-y-3 text-sm leading-relaxed text-ink-muted">
+        {t.quote.split("\n\n").map((para, i) => (
+          <p key={i}>{para}</p>
+        ))}
       </blockquote>
 
       {t.tags && t.tags.length > 0 && (

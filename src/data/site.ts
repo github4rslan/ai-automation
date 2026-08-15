@@ -373,6 +373,16 @@ export const testimonials: Testimonial[] = [
     ],
   },
   {
+    // Verbatim, including the client's paragraph breaks.
+    quote:
+      "Arslan demonstrated strong technical expertise throughout the ElevenLabs integration project involving Twilio, PowerApps, and n8n. His deep understanding of automation workflows and API integrations ensured a smooth and efficient setup across all platforms.\n\nHe maintained excellent communication and coordination, providing regular updates and handling challenges with professionalism and confidence. His ability to bridge complex systems while keeping the process organized and transparent made the collaboration seamless.\n\nOverall: Arslan is highly knowledgeable, dependable, and a pleasure to work with. I would gladly collaborate with him again on future automation or integration projects.",
+    source: "Upwork",
+    country: "United States",
+    project: "Voice front desk agent into Dynamics 365",
+    rating: 5,
+    tags: ["Clear Communicator", "Collaborative", "Professional", "Reliable"],
+  },
+  {
     quote:
       "Arslan was a very diligent and hard-working contractor. He was easy to communicate with and responded quickly. I would highly recommend him for projects in the future.",
     source: "Upwork",
