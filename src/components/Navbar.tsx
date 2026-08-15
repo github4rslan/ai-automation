@@ -6,6 +6,14 @@ import { nav } from "../data/site";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 48);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
 
   useEffect(() => {
     const ids = nav.map((n) => n.href.slice(1));
@@ -29,11 +37,11 @@ export default function Navbar() {
       initial={{ y: -70, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-x-0 top-0 z-50"
+      className={`fixed inset-x-0 z-50 transition-[top] duration-300 ${scrolled ? "top-2" : "top-0"}`}
     >
-      <nav className="container-x flex h-20 items-center justify-between">
+      <nav className={`container-x flex h-20 items-center justify-between transition-all duration-300 ${scrolled ? "md:justify-center" : ""}`}>
         {/* logo */}
-        <a href="#top" className="flex items-center gap-2.5">
+        <a href="#top" className={`flex items-center gap-2.5 ${scrolled ? "md:hidden" : ""}`}>
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-night text-sm font-bold text-brand">
             AF
           </span>
@@ -43,7 +51,16 @@ export default function Navbar() {
         </a>
 
         {/* desktop pill */}
-        <div className="hidden items-center rounded-full bg-night p-1.5 shadow-soft md:flex">
+        <div className={`hidden items-center rounded-full bg-night p-1.5 transition-all duration-300 md:flex ${scrolled ? "gap-1 px-2 shadow-card ring-1 ring-white/10" : "shadow-soft"}`}>
+          {scrolled && (
+            <a
+              href="#top"
+              aria-label="Back to top"
+              className="mr-1 flex h-10 w-10 items-center justify-center rounded-full bg-brand text-sm font-bold text-white"
+            >
+              AF
+            </a>
+          )}
           {nav.map((item) => {
             const isActive = active === item.href.slice(1);
             return (
@@ -67,9 +84,9 @@ export default function Navbar() {
           })}
           <a
             href="#contact"
-            className="ml-1 rounded-full bg-brand px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-600"
+            className={`ml-1 rounded-full bg-brand text-sm font-semibold text-white transition-all hover:bg-brand-600 ${scrolled ? "px-7 py-3" : "px-5 py-2"}`}
           >
-            Contact
+            Contact me
           </a>
         </div>
 
