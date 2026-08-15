@@ -197,8 +197,6 @@ export const projects: Project[] = [
       "Scores each reply before automatically emailing it or escalating it to a person, reducing routine tickets by 80% and making responses 2× faster.",
     ],
     tech: ["n8n", "Shopify GraphQL", "Supabase", "Vector Search", "OpenAI GPT-4o", "Email Automation"],
-    caseStudyUrl:
-      "https://www.upwork.com/freelancers/bazaliqbal?referrer_url_path=/nx/search/talent/details/~01ca7ac8a1cd593e71/profile&p=1935690373424340992",
   },
   {
     name: "The Kingdom Edit",
