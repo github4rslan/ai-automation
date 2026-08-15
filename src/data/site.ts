@@ -244,7 +244,7 @@ export const projects: Project[] = [
     category: "Automation",
     featured: true,
     icon: Sparkles,
-    // image: "/projects/kingdom-edit.png",  // <- add a screenshot like this
+    image: "/projects/kingdom-edit-newsletter.png",
     blurb:
       "A twice weekly AI newsletter that researches, writes and sends itself with zero manual steps.",
     highlights: [
@@ -260,6 +260,7 @@ export const projects: Project[] = [
     category: "Automation",
     featured: true,
     icon: Workflow,
+    image: "/projects/shopify-content-localization.png",
     blurb:
       "An n8n system that writes and publishes SEO product content across regional storefronts.",
     highlights: [
@@ -274,6 +275,7 @@ export const projects: Project[] = [
     category: "Automation",
     featured: true,
     icon: Bot,
+    image: "/projects/ai-support-review-automation.png",
     blurb:
       "Inbound tickets and reviews triaged, answered and escalated automatically.",
     highlights: [
@@ -287,6 +289,7 @@ export const projects: Project[] = [
     name: "AI Operations Monitoring Dashboard",
     category: "Automation",
     icon: Terminal,
+    image: "/projects/ai-operations-dashboard.png",
     blurb:
       "A central dashboard to watch every automation, its health, and its AI cost.",
     highlights: [
