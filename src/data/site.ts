@@ -9,6 +9,7 @@ import {
   Layers,
   Terminal,
   Sparkles,
+  ShoppingCart,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ *
@@ -168,10 +169,12 @@ export type Project = {
   category: "Automation" | "AI SaaS" | "Web App";
   featured?: boolean;
   blurb: string;
+  role?: string;
   highlights: string[];
   tech: string[];
   liveUrl?: string;
   codeUrl?: string;
+  caseStudyUrl?: string;
   icon: LucideIcon;
   // Optional screenshot. Put the file in `public/projects/` and reference it
   // from the site root, e.g. image: "/projects/edway.png". A 16:9 (landscape)
@@ -180,6 +183,23 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    name: "AI-Driven Shopify Support Agent",
+    category: "Automation",
+    featured: true,
+    icon: ShoppingCart,
+    role: "n8n Automation Expert",
+    blurb:
+      "A 24/7 Shopify customer enquiry agent that looks up live order data, grounds answers in company policies, and responds or escalates in under 30 seconds.",
+    highlights: [
+      "Pulls real-time order and customer data through the Shopify GraphQL API whenever a support enquiry arrives.",
+      "Combines live commerce data with a Supabase vector store of FAQs and policies, then uses GPT-4o to draft a grounded response.",
+      "Scores each reply before automatically emailing it or escalating it to a person, reducing routine tickets by 80% and making responses 2× faster.",
+    ],
+    tech: ["n8n", "Shopify GraphQL", "Supabase", "Vector Search", "OpenAI GPT-4o", "Email Automation"],
+    caseStudyUrl:
+      "https://www.upwork.com/freelancers/bazaliqbal?referrer_url_path=/nx/search/talent/details/~01ca7ac8a1cd593e71/profile&p=1935690373424340992",
+  },
   {
     name: "The Kingdom Edit",
     category: "Automation",

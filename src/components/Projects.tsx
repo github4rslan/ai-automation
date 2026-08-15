@@ -113,6 +113,11 @@ function ProjectCard({ project }: { project: Project }) {
 
       <div className="flex flex-1 flex-col p-6 sm:p-7">
         <h3 className="font-display text-xl font-semibold text-ink">{project.name}</h3>
+        {project.role && (
+          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-brand">
+            My role · {project.role}
+          </p>
+        )}
         <p className="mt-2 text-sm leading-relaxed text-ink-muted">{project.blurb}</p>
 
       <div className="mt-5 text-[11px] font-bold uppercase tracking-[0.16em] text-brand">What I built</div>
@@ -136,8 +141,19 @@ function ProjectCard({ project }: { project: Project }) {
         ))}
       </div>
 
-        {(project.liveUrl || project.codeUrl) && (
+        {(project.liveUrl || project.codeUrl || project.caseStudyUrl) && (
           <div className="mt-6 flex items-center gap-4 border-t border-line pt-4">
+            {project.caseStudyUrl && (
+              <a
+                href={project.caseStudyUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-brand"
+              >
+                View case study
+                <ArrowUpRight size={15} />
+              </a>
+            )}
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
