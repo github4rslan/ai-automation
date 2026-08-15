@@ -180,6 +180,7 @@ export type Project = {
   // from the site root, e.g. image: "/projects/edway.png". A 16:9 (landscape)
   // screenshot looks best. If omitted, the card shows the icon instead.
   image?: string;
+  images?: { src: string; alt: string }[];
 };
 
 export const projects: Project[] = [
@@ -188,7 +189,12 @@ export const projects: Project[] = [
     category: "Automation",
     featured: true,
     icon: ShoppingCart,
-    image: "/projects/shopify-support-agent.png",
+    image: "/projects/shopify-agent-main.png",
+    images: [
+      { src: "/projects/shopify-agent-main.png", alt: "Main n8n workflow for the Shopify support agent" },
+      { src: "/projects/shopify-agent-subworkflow.png", alt: "n8n sub-workflow for Shopify customer and order lookup" },
+      { src: "/projects/shopify-agent-supabase.png", alt: "Supabase vector knowledge base containing support policies" },
+    ],
     role: "n8n Automation Expert",
     blurb:
       "A 24/7 Shopify customer enquiry agent that looks up live order data, grounds answers in company policies, and responds or escalates in under 30 seconds.",

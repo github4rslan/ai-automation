@@ -62,6 +62,8 @@ export default function Projects() {
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const gallery = project.images ?? (project.image ? [{ src: project.image, alt: `${project.name} screenshot` }] : []);
+  const [activeImage, setActiveImage] = useState(0);
   const Icon = project.icon;
   const badges = (
     <div className="flex items-center gap-2">
@@ -83,18 +85,36 @@ function ProjectCard({ project }: { project: Project }) {
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       className="card card-hover group flex flex-col overflow-hidden"
     >
-      {project.image ? (
+      {gallery.length > 0 ? (
+        <div>
         <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-cream-50">
           <img
-            src={project.image}
-            alt={`${project.name} screenshot`}
+            src={gallery[activeImage].src}
+            alt={gallery[activeImage].alt}
             loading="lazy"
-            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+            className="h-full w-full object-cover object-top"
           />
           <div className="absolute right-4 top-4">{badges}</div>
           <div className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-xl bg-white/90 text-brand shadow-soft backdrop-blur">
             <Icon size={18} />
           </div>
+        </div>
+        {gallery.length > 1 && (
+          <div className="grid grid-cols-3 gap-2 border-b border-line bg-paper p-3">
+            {gallery.map((image, index) => (
+              <button
+                key={image.src}
+                type="button"
+                onClick={() => setActiveImage(index)}
+                aria-label={`Show image ${index + 1} of ${gallery.length}`}
+                aria-pressed={activeImage === index}
+                className={`overflow-hidden rounded-xl border-2 transition ${activeImage === index ? "border-brand" : "border-transparent opacity-60 hover:opacity-100"}`}
+              >
+                <img src={image.src} alt="" loading="lazy" className="aspect-[16/9] h-full w-full object-cover object-top" />
+              </button>
+            ))}
+          </div>
+        )}
         </div>
       ) : (
         <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-line bg-cream-50">
