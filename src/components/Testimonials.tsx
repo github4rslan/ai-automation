@@ -35,8 +35,11 @@ function TestimonialCard({ t }: { t: Testimonial }) {
       </blockquote>
 
       {t.tags && t.tags.length > 0 && (
+        // Upwork hands out up to five endorsements. Showing them all turns
+        // the card into a chip wall, so display the first three and keep
+        // the rest in the data.
         <div className="mt-4 flex flex-wrap gap-1.5">
-          {t.tags.map((tag) => (
+          {t.tags.slice(0, 3).map((tag) => (
             <span key={tag} className="chip">
               {tag}
             </span>
@@ -52,7 +55,10 @@ function TestimonialCard({ t }: { t: Testimonial }) {
             {t.name ?? "Verified client"}
           </div>
           {(t.project || t.country) && (
-            <div className="mt-0.5 truncate text-xs text-ink-faint">
+            // Wraps rather than truncates: a long project name plus a
+            // country does not fit on one line and was clipping the
+            // country to "U...".
+            <div className="mt-0.5 text-xs leading-snug text-ink-faint">
               {[t.project, t.country].filter(Boolean).join(" · ")}
             </div>
           )}

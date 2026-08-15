@@ -331,6 +331,48 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
+    /* Verbatim apart from spelling and capitalisation: "Ai" -> "AI",
+       "i" -> "I", "hes" -> "he's", "ive" -> "I've", "£ooo's" -> "£000s".
+       The run-on commas are the client's own and are left alone. */
+    quote:
+      "Arslan is an incredible freelancer, he has built me an incredible AI powered bot that I can not begin to explain how good he is at his job, he's responsive, dedicated, goes above and beyond and nothing seems to stress him out. If there is a way he finds it, he has saved me £000s in what I could have spent on this, he's highly recommended, I've used a lot of freelancers before and he is definitely the BEST by far!",
+    source: "Upwork",
+    country: "United Kingdom",
+    project: "Housing disrepair claims chatbot",
+    rating: 5,
+    tags: ["Clear Communicator", "Accountable for Outcomes"],
+  },
+  {
+    // Verbatim -- no edits needed.
+    quote:
+      "Arslan was outstanding to work with. Very detailed in his builds, excellent communicator throughout the project, and genuinely easy to work with. He went above and beyond when a backend database issue came up that was entirely my fault, fixed it at no charge without hesitation. That says a lot about who he is. On top of all that, he's got a great sense of humor, which makes the day-to-day back and forth a lot more enjoyable. I'll absolutely be hiring him again for future projects.",
+    source: "Upwork",
+    project: "SMS & email automations for a gym",
+    rating: 5,
+    tags: [
+      "Committed to Quality",
+      "Solution Oriented",
+      "Clear Communicator",
+      "Detail Oriented",
+      "Accountable for Outcomes",
+    ],
+  },
+  {
+    // Verbatim. The client refers to Arslan as "they" -- left as written.
+    quote:
+      "Arslan was incredible to work with. They quickly understood our complex requirements and built seamless Make.com workflows that connected Shopify, Airtable, and Google Sheets perfectly. Communication was clear, timely, and proactive throughout the entire project. They went above and beyond by optimizing some existing automations and suggesting improvements we hadn't even thought of. The work was delivered ahead of schedule and worked flawlessly from day one. Will definitely hire again!",
+    source: "Upwork",
+    project: "Make.com lead archiving",
+    rating: 5,
+    tags: [
+      "Collaborative",
+      "Clear Communicator",
+      "Reliable",
+      "Solution Oriented",
+      "Committed to Quality",
+    ],
+  },
+  {
     quote:
       "Arslan was a very diligent and hard-working contractor. He was easy to communicate with and responded quickly. I would highly recommend him for projects in the future.",
     source: "Upwork",
