@@ -1,0 +1,164 @@
+import { useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight, Github } from "lucide-react";
+import { projects, type Project } from "../data/site";
+import SectionHeading from "./SectionHeading";
+
+const filters = ["All", "Automation", "AI SaaS", "Web App"] as const;
+type Filter = (typeof filters)[number];
+
+export default function Projects() {
+  const [filter, setFilter] = useState<Filter>("All");
+
+  const shown = useMemo(() => {
+    const list =
+      filter === "All" ? projects : projects.filter((p) => p.category === filter);
+    return [...list].sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
+  }, [filter]);
+
+  return (
+    <section id="work" className="relative scroll-mt-24 py-24">
+      <div className="container-x">
+        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <SectionHeading
+            eyebrow="Selected work"
+            title="Automations and AI products I have shipped."
+            className="mb-0"
+          />
+          <div className="flex flex-wrap gap-2">
+            {filters.map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={`relative rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                  filter === f
+                    ? "border-brand text-white"
+                    : "border-line text-ink-muted hover:border-ink/25 hover:text-ink"
+                }`}
+              >
+                {filter === f && (
+                  <motion.span
+                    layoutId="filter-pill"
+                    className="absolute inset-0 -z-10 rounded-full bg-brand"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                {f}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <motion.div layout className="mt-12 grid gap-5 md:grid-cols-2">
+          <AnimatePresence mode="popLayout">
+            {shown.map((p) => (
+              <ProjectCard key={p.name} project={p} />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectCard({ project }: { project: Project }) {
+  const Icon = project.icon;
+  const badges = (
+    <div className="flex items-center gap-2">
+      <span className="chip">{project.category}</span>
+      {project.featured && (
+        <span className="inline-flex items-center rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">
+          Featured
+        </span>
+      )}
+    </div>
+  );
+
+  return (
+    <motion.article
+      layout
+      initial={{ opacity: 0, scale: 0.97 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.97 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className="card card-hover group flex flex-col overflow-hidden"
+    >
+      {project.image ? (
+        /* screenshot banner */
+        <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-cream-50">
+          <img
+            src={project.image}
+            alt={`${project.name} screenshot`}
+            loading="lazy"
+            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+          />
+          <div className="absolute right-4 top-4">{badges}</div>
+          <div className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-xl bg-white/90 text-brand shadow-soft backdrop-blur">
+            <Icon size={18} />
+          </div>
+        </div>
+      ) : null}
+
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
+        {!project.image && (
+          <div className="mb-5 flex items-start justify-between">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-soft text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+              <Icon size={22} />
+            </div>
+            {badges}
+          </div>
+        )}
+
+        <h3 className="font-display text-xl font-semibold text-ink">{project.name}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-ink-muted">{project.blurb}</p>
+
+      <ul className="mt-4 space-y-2">
+        {project.highlights.slice(0, 3).map((h, i) => (
+          <li key={i} className="flex gap-2.5 text-sm text-ink-muted">
+            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+            <span className="leading-relaxed">{h}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-5 flex flex-wrap gap-1.5">
+        {project.tech.map((t) => (
+          <span
+            key={t}
+            className="rounded-md border border-line bg-cream-50 px-2 py-0.5 font-mono text-[11px] text-ink-muted"
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+
+        {(project.liveUrl || project.codeUrl) && (
+          <div className="mt-6 flex items-center gap-4 border-t border-line pt-4">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-brand"
+              >
+                Live site
+                <ArrowUpRight size={15} />
+              </a>
+            )}
+            {project.codeUrl && (
+              <a
+                href={project.codeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-muted transition-colors hover:text-brand"
+              >
+                <Github size={15} />
+                Code
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    </motion.article>
+  );
+}
