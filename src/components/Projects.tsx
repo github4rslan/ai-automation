@@ -87,7 +87,7 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
       ) : (
         <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-line bg-cream-50">
-          <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(#e8a16b_1px,transparent_1px)] [background-size:18px_18px]" />
+          <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(#ea4b71_1px,transparent_1px)] [background-size:18px_18px]" />
           <div className="relative flex flex-col items-center gap-3 text-center">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-brand shadow-soft">
               <Icon size={28} />

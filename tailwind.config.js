@@ -4,33 +4,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        // warm cream base, inspired by the reference palette
+        // n8n-inspired warm neutral base
         cream: {
-          DEFAULT: "#f0ecde",
-          50: "#f7f4ea",
-          100: "#f2eede",
-          200: "#e7e1cd",
+          DEFAULT: "#f5f3ef",
+          50: "#f9f8f6",
+          100: "#f2f0ec",
+          200: "#e6e2dc",
         },
         paper: "#ffffff",
-        pale: "#fff9e6",
+        pale: "#fce8ee",
         ink: {
-          DEFAULT: "#141416",
-          soft: "#3d3d42",
-          muted: "#5f5f68",
-          faint: "#8a8a93",
+          DEFAULT: "#151519",
+          soft: "#3f3e45",
+          muted: "#67656d",
+          faint: "#929097",
         },
         brand: {
-          DEFAULT: "#ff5e32",
-          600: "#ec4a1f",
-          700: "#d13f17",
-          soft: "#ffe7de",
+          DEFAULT: "#ea4b71",
+          600: "#d83b61",
+          700: "#be2f53",
+          soft: "#fce8ee",
         },
         night: {
-          DEFAULT: "#17171b",
-          800: "#202026",
-          700: "#2b2b31",
+          DEFAULT: "#17181c",
+          800: "#202126",
+          700: "#292a30",
         },
-        line: "#e2ddcd",
+        line: "#dedad4",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
@@ -42,9 +42,9 @@ export default {
         "5xl": "2.75rem",
       },
       boxShadow: {
-        soft: "0 2px 24px -12px rgba(20, 20, 22, 0.18)",
-        card: "0 10px 40px -18px rgba(20, 20, 22, 0.22)",
-        pill: "0 8px 24px -10px rgba(255, 94, 50, 0.5)",
+        soft: "0 2px 24px -12px rgba(21, 21, 25, 0.18)",
+        card: "0 10px 40px -18px rgba(21, 21, 25, 0.22)",
+        pill: "0 8px 24px -10px rgba(234, 75, 113, 0.45)",
       },
       keyframes: {
         marquee: {
