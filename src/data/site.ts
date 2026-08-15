@@ -11,6 +11,7 @@ import {
   Sparkles,
   ShoppingCart,
   PhoneCall,
+  Megaphone,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ *
@@ -185,6 +186,22 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    name: "Automated Franchise Content Creator",
+    category: "Automation",
+    featured: true,
+    icon: Megaphone,
+    image: "/projects/franchise-content-creator.png",
+    role: "n8n Workflow & AI Integration Engineer",
+    blurb:
+      "A scheduled content engine that researches franchise brands, creates platform-specific social posts, organizes review data, and notifies stakeholders automatically.",
+    highlights: [
+      "Runs every five days, loops through franchise brands, and uses the Perplexity API to collect current market trends, news, and consumer insights.",
+      "Combines verified Google Docs brand data with an AI agent and structured output validation to produce three story-driven LinkedIn posts per brand.",
+      "Condenses each post for X, stores LinkedIn and X versions with feedback status in Airtable, and sends a completion notification to stakeholders.",
+    ],
+    tech: ["n8n", "Perplexity API", "OpenAI", "Claude", "LangChain", "Google Docs", "Airtable", "Gmail"],
+  },
   {
     name: "Lucy — Appointment Booking AI Agent",
     category: "Automation",
