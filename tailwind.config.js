@@ -4,33 +4,34 @@ export default {
   theme: {
     extend: {
       colors: {
-        // n8n-inspired warm neutral base
+        // violet and midnight automation palette
         cream: {
-          DEFAULT: "#f5f3ef",
-          50: "#f9f8f6",
-          100: "#f2f0ec",
-          200: "#e6e2dc",
+          DEFAULT: "#f7f5fc",
+          50: "#fbfafe",
+          100: "#f3f0fa",
+          200: "#e7e1f2",
         },
         paper: "#ffffff",
-        pale: "#fce8ee",
+        pale: "#ede9fe",
         ink: {
-          DEFAULT: "#151519",
-          soft: "#3f3e45",
-          muted: "#67656d",
-          faint: "#929097",
+          DEFAULT: "#181524",
+          soft: "#403a52",
+          muted: "#696178",
+          faint: "#958ca4",
         },
         brand: {
-          DEFAULT: "#ea4b71",
-          600: "#d83b61",
-          700: "#be2f53",
-          soft: "#fce8ee",
+          DEFAULT: "#7c3aed",
+          300: "#a78bfa",
+          600: "#6d28d9",
+          700: "#5b21b6",
+          soft: "#ede9fe",
         },
         night: {
-          DEFAULT: "#17181c",
-          800: "#202126",
-          700: "#292a30",
+          DEFAULT: "#151225",
+          800: "#1e1932",
+          700: "#29223f",
         },
-        line: "#dedad4",
+        line: "#e2dcec",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
@@ -42,9 +43,9 @@ export default {
         "5xl": "2.75rem",
       },
       boxShadow: {
-        soft: "0 2px 24px -12px rgba(21, 21, 25, 0.18)",
-        card: "0 10px 40px -18px rgba(21, 21, 25, 0.22)",
-        pill: "0 8px 24px -10px rgba(234, 75, 113, 0.45)",
+        soft: "0 2px 24px -12px rgba(21, 18, 37, 0.18)",
+        card: "0 10px 40px -18px rgba(21, 18, 37, 0.24)",
+        pill: "0 8px 24px -10px rgba(124, 58, 237, 0.48)",
       },
       keyframes: {
         marquee: {
