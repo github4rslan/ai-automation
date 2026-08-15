@@ -188,6 +188,7 @@ export const projects: Project[] = [
     category: "Automation",
     featured: true,
     icon: ShoppingCart,
+    image: "/projects/shopify-support-agent.png",
     role: "n8n Automation Expert",
     blurb:
       "A 24/7 Shopify customer enquiry agent that looks up live order data, grounds answers in company policies, and responds or escalates in under 30 seconds.",
