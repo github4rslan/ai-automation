@@ -168,7 +168,7 @@ export const techMarquee: string[] = [
 
 export type Project = {
   name: string;
-  category: "Automation" | "AI SaaS" | "Web App";
+  category: "Automation";
   featured?: boolean;
   blurb: string;
   role?: string;
@@ -284,65 +284,6 @@ export const projects: Project[] = [
     tech: ["n8n", "OpenAI", "Claude", "Gmail API", "Slack API", "HubSpot"],
   },
   {
-    name: "Humora AI SaaS",
-    category: "AI SaaS",
-    featured: true,
-    icon: Sparkles,
-    blurb:
-      "A commercial SaaS that rewrites AI drafts so they read like a person wrote them.",
-    highlights: [
-      "Multi pass engine humanizes a draft, audits it against a 29 pattern AI writing spec, and revises only when tells remain.",
-      "GPT-4o-mini as primary with Claude Haiku as automatic fallback, tone presets and voice matching from a sample.",
-      "Full SaaS: Clerk auth, Stripe tiers with server side usage enforcement, Upstash rate limiting and a gated admin dashboard.",
-    ],
-    tech: ["Next.js 16", "React 19", "Vercel AI SDK", "OpenAI", "Claude", "Stripe", "Clerk"],
-    liveUrl: "https://humora-ai.vercel.app",
-  },
-  {
-    name: "RAG.AI Document Intelligence",
-    category: "AI SaaS",
-    featured: true,
-    icon: Database,
-    blurb:
-      "Upload documents and chat with them, grounded answers with source attribution.",
-    highlights: [
-      "On upload it extracts text, chunks it with LangChain, generates OpenAI embeddings and stores them for search.",
-      "At query time it retrieves the most relevant chunks through MongoDB Atlas Vector Search and answers with GPT-4o-mini, grounded and cited.",
-      "JWT auth and Upstash caching cut latency and cost, with the API on Render and a React 19 frontend on Vercel.",
-    ],
-    tech: ["Node.js", "MongoDB Atlas Vector Search", "LangChain", "OpenAI", "React 19"],
-    liveUrl: "https://rag-project-nine.vercel.app",
-  },
-  {
-    name: "EDway Homeschooling SaaS",
-    category: "AI SaaS",
-    featured: true,
-    icon: Boxes,
-    blurb:
-      "An AI platform that plans lessons, teaches, and generates the compliance evidence UK families need.",
-    highlights: [
-      "Plans each child's learning, teaches daily lessons with AI, tracks progress and generates official Local Authority evidence.",
-      "Parent dashboard with live compliance status and a separate child hub with interactive, safety checked lessons.",
-      "One click builds a verified portfolio stamped with a tamper proof hash, GDPR compliant, with Stripe billing.",
-    ],
-    tech: ["Next.js", "React", "TypeScript", "MongoDB", "OpenAI", "Stripe"],
-    liveUrl: "https://edway.uk",
-  },
-  {
-    name: "Kalmori Music Distribution SaaS",
-    category: "AI SaaS",
-    icon: Boxes,
-    blurb:
-      "A TuneCore style platform with an in house AI mastering engine and royalty analytics.",
-    highlights: [
-      "Role based dashboards for artists, producers and labels, plus an admin console for catalog, subscriptions and payouts.",
-      "KALM, an in house AI mastering engine with BPM and key detection, plus auto generated social campaigns per release.",
-      "Royalty engine ingests statements from 8 distributors, matches rows with a 5 tier matcher, and charts streams and revenue.",
-    ],
-    tech: ["React", "FastAPI", "Python", "MongoDB", "Stripe", "PayPal", "FFmpeg"],
-    liveUrl: "https://kalmorimusic.com",
-  },
-  {
     name: "AI Operations Monitoring Dashboard",
     category: "Automation",
     icon: Terminal,
@@ -354,20 +295,6 @@ export const projects: Project[] = [
       "Analytics on success rates, execution times and failures, wired into GitHub deploy pipelines.",
     ],
     tech: ["React", "Next.js", "PostgreSQL", "n8n", "Vercel"],
-  },
-  {
-    name: "SimplyAI Questionnaire & Report Platform",
-    category: "AI SaaS",
-    icon: Braces,
-    blurb:
-      "An interactive questionnaire that generates a personalized AI report you can export.",
-    highlights: [
-      "SurveyJS questionnaire feeds OpenAI, which writes a personalized report viewable with charts and PDF export.",
-      "Node and Express backend with a MySQL schema on Knex migrations, JWT plus Google and Facebook sign in.",
-      "Hardened with Helmet, rate limiting and validation, with Stripe subscriptions gating access.",
-    ],
-    tech: ["React", "TypeScript", "Node.js", "MySQL", "OpenAI", "Stripe"],
-    codeUrl: "https://github.com/github4rslan/simplyai_backend",
   },
 ];
 

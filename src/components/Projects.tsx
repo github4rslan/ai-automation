@@ -1,52 +1,21 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
 import { projects, type Project } from "../data/site";
 import SectionHeading from "./SectionHeading";
 
-const filters = ["All", "Automation", "AI SaaS", "Web App"] as const;
-type Filter = (typeof filters)[number];
-
 export default function Projects() {
-  const [filter, setFilter] = useState<Filter>("All");
-
-  const shown = useMemo(() => {
-    const list =
-      filter === "All" ? projects : projects.filter((p) => p.category === filter);
-    return [...list].sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
-  }, [filter]);
+  const shown = [...projects].sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
 
   return (
     <section id="work" className="relative scroll-mt-24 py-24">
       <div className="container-x">
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <div>
           <SectionHeading
             eyebrow="Completed projects"
             title="Business problems turned into working systems."
             className="mb-0"
           />
-          <div className="flex flex-wrap gap-2">
-            {filters.map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`relative rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                  filter === f
-                    ? "border-brand text-white"
-                    : "border-line text-ink-muted hover:border-ink/25 hover:text-ink"
-                }`}
-              >
-                {filter === f && (
-                  <motion.span
-                    layoutId="filter-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-brand"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-                {f}
-              </button>
-            ))}
-          </div>
         </div>
 
         <motion.div layout className="mt-12 grid gap-5 md:grid-cols-2">
