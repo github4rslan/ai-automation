@@ -33,11 +33,13 @@ export const profile = {
   // Short intro used in the hero.
   intro:
     "I design AI automation pipelines that pull data, reason over it with LLMs, and deliver the result with no manual steps. Then I build the apps and dashboards that run around them.",
-  // Longer About paragraphs.
+  // Longer About paragraphs. Deliberately short: the numbers live in
+  // `stats` right beside this text, the reliability story has its own
+  // section, and the tagline above already says what I do. Repeating
+  // any of that here just makes the page longer, not more convincing.
   about: [
-    "I build AI automation. I take a manual, repetitive process and turn it into a workflow that runs on its own, reliably, at volume, and keeps working when nobody is watching.",
-    "My pipelines live in n8n and Make, with OpenAI and Anthropic Claude as the reasoning layer. They run on schedules and webhooks with retry logic, cost control and clean execution logging. Around each one I build the React and Node apps, dashboards and integrations that make it usable.",
-    "Over about two years on Fiverr and Upwork I have shipped more than 35 projects with a 4.9 out of 5 rating across 50 orders, taking each from the first requirement through to deployment and support.",
+    "My pipelines live in n8n and Make, with OpenAI and Anthropic Claude as the reasoning layer. They run on schedules and webhooks, with retry logic, cost control and clean execution logging.",
+    "Around each pipeline I build the React and Node apps, dashboards and integrations that make it usable, and I take every project from the first requirement through to deployment and handover.",
   ],
   stats: [
     { value: "35+", label: "Projects shipped" },
@@ -63,6 +65,13 @@ export type SkillGroup = {
   items: string[];
 };
 
+/*  Kept deliberately short -- about four per group.
+ *
+ *  The marquee above already scans the whole stack, so this grid does not
+ *  need to repeat every tool. Four specific, load-bearing items read as
+ *  depth; a wall of chips reads as padding. Prefer the entry that says
+ *  something ("n8n custom nodes & error handling") over the bare name.
+ */
 export const skillGroups: SkillGroup[] = [
   {
     title: "AI Automation",
@@ -71,10 +80,7 @@ export const skillGroups: SkillGroup[] = [
       "n8n (custom nodes, error handling)",
       "Make (Make.com)",
       "Webhook & API orchestration",
-      "GitHub Actions cron pipelines",
-      "Retry logic & rate limiting",
-      "Cost control",
-      "Monitoring & execution logging",
+      "Retry logic, rate limiting & cost control",
     ],
   },
   {
@@ -83,12 +89,8 @@ export const skillGroups: SkillGroup[] = [
     items: [
       "OpenAI API (GPT-4o, 4o-mini)",
       "Anthropic Claude API",
-      "LangChain",
-      "RAG pipelines",
-      "Vector search (Atlas)",
-      "Prompt engineering",
-      "MCP tools",
-      "Model fallback logic",
+      "RAG pipelines & vector search",
+      "LangChain, MCP tools",
     ],
   },
   {
@@ -99,21 +101,16 @@ export const skillGroups: SkillGroup[] = [
       "Next.js (App Router, SSR, ISR)",
       "TypeScript",
       "Tailwind CSS",
-      "Framer Motion",
-      "Redux Toolkit / Zustand",
     ],
   },
   {
     title: "Backend",
     icon: Braces,
     items: [
-      "Node.js",
-      "Express.js",
-      "Python",
-      "FastAPI",
+      "Node.js & Express",
+      "Python & FastAPI",
       "REST API design",
       "JWT / RBAC",
-      "MVC architecture",
     ],
   },
   {
@@ -123,7 +120,6 @@ export const skillGroups: SkillGroup[] = [
       "MongoDB (Mongoose, aggregation)",
       "PostgreSQL (Knex, migrations)",
       "Supabase",
-      "MySQL",
       "Redis / Upstash",
     ],
   },
@@ -135,7 +131,6 @@ export const skillGroups: SkillGroup[] = [
       "Docker",
       "GitHub Actions CI/CD",
       "Vercel & Render",
-      "Nginx, SSL, firewall",
     ],
   },
 ];
