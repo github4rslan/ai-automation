@@ -4,9 +4,10 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
 import About from "./components/About";
-import Skills from "./components/Skills";
 import Projects from "./components/Projects";
-import Experience from "./components/Experience";
+import Services from "./components/Services";
+import Reliability from "./components/Reliability";
+import WorkflowDemo from "./components/WorkflowDemo";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -20,9 +21,10 @@ export default function App() {
         <Hero />
         <Marquee />
         <About />
-        <Skills />
+        <Services />
         <Projects />
-        <Experience />
+        <Reliability />
+        <WorkflowDemo />
         <Contact />
       </main>
       <Footer />

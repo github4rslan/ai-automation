@@ -46,10 +46,10 @@ export const profile = {
 
 export type NavItem = { label: string; href: string };
 export const nav: NavItem[] = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Work", href: "#work" },
-  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#work" },
+  { label: "Services", href: "#services" },
+  { label: "Process", href: "#reliability" },
+  { label: "Demo", href: "#demo" },
 ];
 
 /* ---------------------------- Skills ------------------------------ */

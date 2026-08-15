@@ -32,26 +32,26 @@ export default function Hero() {
             variants={item}
             className="mt-6 font-display text-[2.6rem] font-semibold leading-[1.04] tracking-tight text-ink sm:text-6xl md:text-[4.2rem]"
           >
-            AI automation
-            <br />
-            that <span className="text-brand">runs itself.</span>
+            I build reliable AI automations
+            <br className="hidden sm:block" /> that <span className="text-brand">run 24/7.</span>
           </motion.h1>
 
           <motion.p
             variants={item}
             className="mt-6 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg"
           >
-            {profile.intro}
+            From customer support and content pipelines to internal AI agents—built
+            with n8n, APIs, human approvals, and production-ready error handling.
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-3">
             <a href="#work" className="btn-primary">
-              View my work
+              View completed projects
               <ArrowUpRight size={16} />
             </a>
             <a href="#contact" className="btn-ghost">
               <Mail size={16} />
-              Start a conversation
+              Discuss an automation
             </a>
           </motion.div>
 
