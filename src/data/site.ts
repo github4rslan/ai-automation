@@ -338,7 +338,8 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "Arslan was a very diligent and hard-working contractor. He was easy to communicate with and responded quickly. I would highly recommend him for projects in the future.",
-    // TODO: add `name`, `source` and `project` once confirmed.
+    source: "Upwork",
+    // TODO: add `name` (first name) and `country`.
   },
   {
     quote:
@@ -355,7 +356,8 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "Arslan demonstrated strong expertise in AI automation and delivered high-quality work throughout the engagement. His communication was clear, deadlines were met consistently, and he showcased a solid understanding of the project requirements. A dependable and skilled professional. We would gladly consider working with him again in the future.",
-    // TODO: add `name`, `source` and `project` once confirmed.
+    source: "Upwork",
+    // TODO: add `name` (first name) and `country`.
   },
 ];
 
