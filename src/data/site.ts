@@ -10,6 +10,7 @@ import {
   Terminal,
   Sparkles,
   ShoppingCart,
+  PhoneCall,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ *
@@ -184,6 +185,22 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    name: "Lucy — Appointment Booking AI Agent",
+    category: "Automation",
+    featured: true,
+    icon: PhoneCall,
+    image: "/projects/vapi-lucy-appointment-agent.png",
+    role: "Voice Agent Developer & Conversational Designer",
+    blurb:
+      "A natural-sounding VAPI phone agent that answers calls, qualifies appointment requests, confirms the details, and sends structured bookings to a CRM.",
+    highlights: [
+      "Designed the full conversation flow: greet the caller, collect their name and appointment purpose, ask for availability, summarize the request, and confirm before booking.",
+      "Combines real-time Deepgram transcription, OpenAI dialogue reasoning, and ElevenLabs Multilingual v2 speech in a web telephony experience.",
+      "Delivers structured booking data to the CRM through a webhook while maintaining approximately $0.11 per minute cost and 1.65-second response latency.",
+    ],
+    tech: ["VAPI", "Deepgram", "OpenAI", "ElevenLabs", "Webhooks", "CRM Integration", "Voice AI"],
+  },
   {
     name: "AI-Driven Shopify Support Agent",
     category: "Automation",
