@@ -1,0 +1,186 @@
+<!doctype html>
+<!--
+  Source for /public/og.png (the social share card).
+  Regenerate: open this file at exactly 1200x630 and screenshot it.
+  Colours are kept in sync with tailwind.config.js by hand.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      html, body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+      }
+
+      body {
+        position: relative;
+        background: #151225;
+        font-family: Inter, system-ui, sans-serif;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 78px;
+      }
+
+      /* violet glow accents, mirroring the site's Background/Contact blobs */
+      .glow {
+        position: absolute;
+        border-radius: 9999px;
+        pointer-events: none;
+      }
+      .glow-a {
+        width: 620px; height: 620px;
+        top: -300px; right: -170px;
+        background: radial-gradient(circle, rgba(124,58,237,0.42) 0%, rgba(124,58,237,0) 70%);
+      }
+      .glow-b {
+        width: 520px; height: 520px;
+        bottom: -280px; left: -160px;
+        background: radial-gradient(circle, rgba(167,139,250,0.26) 0%, rgba(167,139,250,0) 70%);
+      }
+
+      /* subtle grid, like an automation canvas */
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
+        background-size: 48px 48px;
+        pointer-events: none;
+      }
+
+      .content { position: relative; z-index: 1; }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 8px 17px;
+        border-radius: 9999px;
+        background: rgba(124, 58, 237, 0.16);
+        border: 1px solid rgba(167, 139, 250, 0.34);
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #a78bfa;
+      }
+      .dot {
+        width: 7px; height: 7px;
+        border-radius: 9999px;
+        background: #a78bfa;
+      }
+
+      h1 {
+        margin-top: 30px;
+        font-size: 82px;
+        font-weight: 800;
+        letter-spacing: -0.033em;
+        line-height: 1.03;
+      }
+
+      .role {
+        margin-top: 16px;
+        font-size: 37px;
+        font-weight: 600;
+        letter-spacing: -0.017em;
+        color: #a78bfa;
+      }
+
+      .tagline {
+        margin-top: 21px;
+        font-size: 25px;
+        line-height: 1.45;
+        color: rgba(255, 255, 255, 0.66);
+        max-width: 830px;
+      }
+
+      .stack {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        flex-wrap: wrap;
+      }
+      .chip {
+        padding: 9px 18px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.062);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .footer {
+        position: absolute;
+        left: 78px;
+        right: 78px;
+        bottom: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1;
+      }
+      .site {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 19px;
+        color: rgba(255, 255, 255, 0.48);
+      }
+      .proof {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        font-size: 19px;
+        color: rgba(255, 255, 255, 0.62);
+      }
+      .proof b {
+        color: #ffffff;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+    <div class="grid"></div>
+
+    <div class="content">
+      <span class="badge"><span class="dot"></span>Available for work</span>
+
+      <h1>Arslan Faisal</h1>
+      <div class="role">AI Automation Developer</div>
+
+      <p class="tagline">
+        I turn manual, repetitive work into AI systems that run themselves.
+      </p>
+
+      <div class="stack">
+        <span class="chip">n8n</span>
+        <span class="chip">Make</span>
+        <span class="chip">OpenAI</span>
+        <span class="chip">Claude</span>
+        <span class="chip">LangChain</span>
+        <span class="chip">RAG</span>
+        <span class="chip">React</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="site">arslanfaisal-ai-automation.vercel.app</span>
+      <span class="proof"><span><b>35+</b> projects shipped</span><span><b>4.9/5</b> rating</span></span>
+    </div>
+  </body>
+</html>
