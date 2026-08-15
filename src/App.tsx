@@ -6,6 +6,7 @@ import Marquee from "./components/Marquee";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Services from "./components/Services";
+import Testimonials from "./components/Testimonials";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Reliability from "./components/Reliability";
@@ -25,6 +26,7 @@ export default function App() {
         <About />
         <Services />
         <Projects />
+        <Testimonials />
         <Experience />
         <Skills />
         <Reliability />

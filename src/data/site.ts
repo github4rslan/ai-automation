@@ -301,6 +301,64 @@ export const projects: Project[] = [
   },
 ];
 
+/* -------------------------- Testimonials -------------------------- */
+
+/*  HOW TO FILL THIS IN
+ *  -------------------
+ *  Copy real reviews from your Fiverr and Upwork profiles. Keep the
+ *  client's own wording -- do not polish it, the rough phrasing is what
+ *  makes a review read as genuine.
+ *
+ *  `name`    Use whatever the platform shows publicly (often a username
+ *            such as "@mark_t" or a first name). Do not invent full names.
+ *  `source`  "Fiverr" | "Upwork" | "Direct"
+ *  `country` Optional, shown next to the name. Fiverr displays this.
+ *  `project` Optional one-line label for what you built for them.
+ *  `rating`  Out of 5. Omit to hide the stars for that card.
+ *
+ *  The section does not render at all while this array is empty, so it is
+ *  safe to deploy before you have pasted the real quotes in.
+ */
+
+export type Testimonial = {
+  quote: string;
+  /** Omit if you would rather not publish it -- the card shows
+   *  "Verified client" instead. Never put a name here that the client
+   *  did not actually use. */
+  name?: string;
+  source?: "Fiverr" | "Upwork" | "Direct";
+  country?: string;
+  project?: string;
+  rating?: number;
+  /** Upwork endorsement tags, e.g. "Solution Oriented". */
+  tags?: string[];
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Arslan was a very diligent and hard-working contractor. He was easy to communicate with and responded quickly. I would highly recommend him for projects in the future.",
+    // TODO: add `name`, `source` and `project` once confirmed.
+  },
+  {
+    quote:
+      "I've been working with Arslan on a couple of automations, and I can definitely recommend him for anyone who wants to automate their repetitive tasks. He knows n8n quite well, and he is very organized in the way he presents his solutions. He also has a very can-do attitude.",
+    // TODO: add `name`, `source` and `project` once confirmed.
+  },
+  {
+    quote: "Definitely one of the best freelancers I have worked with on Upwork!",
+    source: "Upwork",
+    rating: 5,
+    tags: ["Solution Oriented", "Clear Communicator", "Detail Oriented"],
+    // TODO: add `name` and `project` once confirmed.
+  },
+  {
+    quote:
+      "Arslan demonstrated strong expertise in AI automation and delivered high-quality work throughout the engagement. His communication was clear, deadlines were met consistently, and he showcased a solid understanding of the project requirements. A dependable and skilled professional. We would gladly consider working with him again in the future.",
+    // TODO: add `name`, `source` and `project` once confirmed.
+  },
+];
+
 /* --------------------------- Experience --------------------------- */
 
 export type Experience = {
