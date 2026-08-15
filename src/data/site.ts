@@ -46,10 +46,7 @@ export const profile = {
 
 export type NavItem = { label: string; href: string };
 export const nav: NavItem[] = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Work", href: "#work" },
-  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#work" },
 ];
 
 /* ---------------------------- Skills ------------------------------ */
@@ -309,60 +306,5 @@ export const projects: Project[] = [
     ],
     tech: ["React", "TypeScript", "Node.js", "MySQL", "OpenAI", "Stripe"],
     codeUrl: "https://github.com/github4rslan/simplyai_backend",
-  },
-];
-
-/* --------------------------- Experience --------------------------- */
-
-export type Experience = {
-  role: string;
-  company: string;
-  period: string;
-  location: string;
-  points: string[];
-};
-
-export const experience: Experience[] = [
-  {
-    role: "AI Automation Developer (Freelance)",
-    company: "Fiverr and Upwork",
-    period: "2023 to Present",
-    location: "Remote",
-    points: [
-      "Delivered more than 35 AI and automation projects with a 4.9 out of 5 rating across 50 orders, each taken from requirements through deployment and post launch support.",
-      "Designed and ran multi step AI automation pipelines in n8n and Make for content generation, localization, review handling and reporting, with OpenAI and Claude as the intelligence layer.",
-      "Built automations that run continuously at volume with retry logic, cost control and clean error handling, and judged when a task should be a deterministic workflow versus an AI agent.",
-      "Shipped commercial products including an AI homeschooling platform, a fully automated newsletter system, a music distribution SaaS and an e-commerce site.",
-    ],
-  },
-  {
-    role: "Full Stack Developer",
-    company: "ZySoftTec",
-    period: "Feb 2026 to June 2026",
-    location: "Remote",
-    points: [
-      "Built production grade full stack apps with React, Node, Express, TypeScript, Next.js, MongoDB and PostgreSQL inside an engineering team.",
-      "Designed features end to end, from React and TypeScript UI flows to REST APIs, backend logic and databases, through code reviews with a senior developer.",
-      "Built auth and authorization with JWT and RBAC, admin dashboards with protected routes, and integrated AWS S3, Stripe and CDN across production projects.",
-      "Followed a proper Git workflow with feature branches, pull requests and reviews in an Agile team.",
-    ],
-  },
-];
-
-export const education = [
-  {
-    degree: "MS, Computer Systems Engineering",
-    school: "Islamia University of Bahawalpur",
-    year: "2023",
-  },
-  {
-    degree: "BS, Computer Systems Engineering",
-    school: "Islamia University of Bahawalpur",
-    year: "2020",
-  },
-  {
-    degree: "Registered Engineer (RE), Pakistan Engineering Council",
-    school: "PEC Reg. No. COMP/20144",
-    year: "",
   },
 ];
