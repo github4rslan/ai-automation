@@ -1,8 +1,10 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import type { ReactNode } from "react";
 import { Github, Linkedin, ArrowUpRight, Mail } from "lucide-react";
 import { profile } from "../data/site";
 import PipelineViz from "./PipelineViz";
+import AnimatedText from "./AnimatedText";
 
 const container = {
   hidden: {},
@@ -14,8 +16,17 @@ const item = {
 };
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  // Drives the parallax on the pipeline card as the hero scrolls away.
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const visualY = useTransform(scrollYProgress, [0, 1], [0, -64]);
+  const visualOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.35]);
+
   return (
-    <section id="top" className="relative pt-32 pb-16 sm:pt-40">
+    <section ref={sectionRef} id="top" className="relative pt-32 pb-16 sm:pt-40">
       <div className="container-x grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.div variants={item}>
@@ -28,13 +39,10 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          <motion.h1
-            variants={item}
-            className="mt-6 font-display text-[2.6rem] font-semibold leading-[1.04] tracking-tight text-ink sm:text-6xl md:text-[4.2rem]"
-          >
-            I build reliable AI automations
-            <br className="hidden sm:block" /> that <span className="text-brand">run 24/7.</span>
-          </motion.h1>
+          <h1 className="mt-6 font-display text-[2.6rem] font-semibold leading-[1.04] tracking-tight text-ink sm:text-6xl md:text-[4.2rem]">
+            <AnimatedText text="I build reliable AI automations that" immediate delay={0.15} />{" "}
+            <AnimatedText text="run 24/7." className="text-brand" immediate delay={0.5} />
+          </h1>
 
           <motion.p
             variants={item}
@@ -71,6 +79,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          style={{ y: visualY, opacity: visualOpacity }}
           className="relative"
         >
           <div className="absolute -right-6 -top-8 -bottom-8 left-10 rounded-[2.75rem] bg-brand" aria-hidden="true" />

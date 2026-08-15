@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import AnimatedText from "./AnimatedText";
 
 type Props = {
   eyebrow: string;
@@ -14,10 +15,10 @@ export default function SectionHeading({ eyebrow, title, className }: Props) {
           <span className="h-1.5 w-1.5 rounded-full bg-brand" />
           {eyebrow}
         </span>
-        <h2 className="mt-4 max-w-2xl font-display text-3xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-[2.75rem]">
-          {title}
-        </h2>
       </Reveal>
+      <h2 className="mt-4 max-w-2xl font-display text-3xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-[2.75rem]">
+        <AnimatedText text={title} />
+      </h2>
     </div>
   );
 }

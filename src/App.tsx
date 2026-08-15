@@ -1,3 +1,4 @@
+import { MotionConfig } from "framer-motion";
 import Background from "./components/Background";
 import ScrollProgress from "./components/ScrollProgress";
 import Navbar from "./components/Navbar";
@@ -13,10 +14,16 @@ import Reliability from "./components/Reliability";
 import WorkflowDemo from "./components/WorkflowDemo";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import useCardSpotlight from "./hooks/useCardSpotlight";
 
 export default function App() {
+  useCardSpotlight();
+
   return (
-    <>
+    // `reducedMotion="user"` makes every framer-motion animation honour the
+    // OS setting. The CSS media query in index.css cannot do this on its own,
+    // because framer-motion animates via JS transforms, not CSS transitions.
+    <MotionConfig reducedMotion="user">
       <Background />
       <ScrollProgress />
       <Navbar />
@@ -34,6 +41,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </MotionConfig>
   );
 }

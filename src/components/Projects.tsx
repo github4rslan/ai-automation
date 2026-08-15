@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
 import { projects, type Project } from "../data/site";
@@ -30,7 +30,13 @@ export default function Projects() {
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+/* forwardRef is required: AnimatePresence in `popLayout` mode measures each
+   child, so it needs a ref through to the DOM node. Without it React warns
+   and the exit animation does not play. */
+const ProjectCard = forwardRef<HTMLElement, { project: Project }>(function ProjectCard(
+  { project },
+  ref
+) {
   const gallery = project.images ?? (project.image ? [{ src: project.image, alt: `${project.name} screenshot` }] : []);
   const [activeImage, setActiveImage] = useState(0);
   const Icon = project.icon;
@@ -47,6 +53,7 @@ function ProjectCard({ project }: { project: Project }) {
 
   return (
     <motion.article
+      ref={ref}
       layout
       initial={{ opacity: 0, scale: 0.97 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -170,4 +177,4 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
     </motion.article>
   );
-}
+});

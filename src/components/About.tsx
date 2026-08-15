@@ -1,6 +1,7 @@
 import { profile } from "../data/site";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
+import CountUp from "./CountUp";
 
 export default function About() {
   return (
@@ -25,8 +26,8 @@ export default function About() {
                     key={s.label}
                     className="rounded-3xl bg-night-800 p-6 text-center"
                   >
-                    <div className="font-display text-4xl font-bold text-brand">
-                      {s.value}
+                    <div className="font-display text-4xl font-bold tabular-nums text-brand">
+                      <CountUp value={s.value} />
                     </div>
                     <div className="mt-1.5 text-sm text-white/60">{s.label}</div>
                   </div>
